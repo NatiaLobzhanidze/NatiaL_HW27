@@ -15,7 +15,7 @@ import UIKit
 protocol CityWeathereListPresentationLogic
 {
   func presentWeather(response: CityWeathereList.ShowWeatherList.Response)
-    func presentSelectedDetails(response: CityWeathereList.showWeatherDetails.Response)
+    func presentSelectedDetails(response: CityWeathereList.ShowWeatherList.Response)
 }
 
 class CityWeathereListPresenter: CityWeathereListPresentationLogic
@@ -34,6 +34,8 @@ class CityWeathereListPresenter: CityWeathereListPresentationLogic
         viewController?.displayCityWeatherList(viewModel: CityWeathereList.ShowWeatherList.ViewModel(tempInCity: viewModel))
     }
     
-    func presentSelectedDetails(response: CityWeathereList.showWeatherDetails.Response) {
+    func presentSelectedDetails(response: CityWeathereList.ShowWeatherList.Response) {
+        let viewModel = configureTextLabel(from: response.weatherResponse)
+        viewController?.displayCityWeatherList(viewModel: CityWeathereList.ShowWeatherList.ViewModel(tempInCity: viewModel))
     }
 }

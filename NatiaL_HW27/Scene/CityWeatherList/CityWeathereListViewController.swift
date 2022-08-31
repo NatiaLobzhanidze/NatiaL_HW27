@@ -71,8 +71,9 @@ class CityWeathereListViewController: UIViewController
     }
   
     @objc func goToDetails() {
-        router?.navigateToCountryDetails()
+       
         interactor?.didTapSeeDetails(request: CityWeathereList.showWeatherDetails.Request(weatherResponse: weatherObject))
+        router?.navigateToCountryDetails()
     }
   //@IBOutlet weak var nameTextField: UITextField!
   
